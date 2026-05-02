@@ -68,7 +68,7 @@ export default function App(): JSX.Element {
                     <a href="https://www.svgbackgrounds.com/set/free-svg-backgrounds-and-patterns/">
                         SVGBackgrounds.com
                     </a>
-                    --App by Steven Nguyen
+                    ; App by Steven Nguyen
                 </p>
             </footer>
         </main>

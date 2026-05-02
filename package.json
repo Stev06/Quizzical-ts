@@ -11,12 +11,13 @@
     },
     "dependencies": {
         "clsx": "^2.1.1",
-        "nanoid": "^5.1.11",
+        "he": "^1.2.0",
         "react": "^19.2.5",
         "react-dom": "^19.2.5"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
+        "@types/he": "^1.2.3",
         "@types/node": "^24.12.2",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",

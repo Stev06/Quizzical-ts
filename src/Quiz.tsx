@@ -1,8 +1,8 @@
 import type { JSX } from "react"
 import type { Question } from "./App"
-import { nanoid } from "nanoid"
 import clsx from "clsx"
-import React, { useState } from "react"
+import he from "he"
+import React, { useState, useRef } from "react"
 
 export type QuizProps = {
     questions: Question[]
@@ -18,13 +18,16 @@ export default function Quiz(props: QuizProps): JSX.Element {
     const [answers, setAnswers] = useState<Answer[]>([])
     const [isDone, setIsDone] = useState(false)
 
+    const quizButtons = useRef<HTMLButtonElement[]>([])
+
     const correctAnswers: number = (() => {
         let i = 0
         props.questions.forEach((q: Question) => {
             if (
                 answers.some(
                     (a: Answer) =>
-                        a.question === q && a.answer === q.correct_answer,
+                        a.question === q &&
+                        a.answer === he.decode(q.correct_answer),
                 )
             ) {
                 i++
@@ -36,7 +39,7 @@ export default function Quiz(props: QuizProps): JSX.Element {
     function createQuestionElements(): JSX.Element[] {
         return props.questions.map((question, index) => (
             <div className="question-box" key={index}>
-                <p>{question.question}</p>
+                <p>{he.decode(question.question)}</p>
                 {createButtonElements(question)}
                 <hr />
             </div>
@@ -47,19 +50,36 @@ export default function Quiz(props: QuizProps): JSX.Element {
         let options: string[] = [
             ...question.incorrect_answers,
             question.correct_answer,
-        ].sort()
+        ]
+            .sort()
+            .map((opt) => he.decode(opt))
 
         const buttons: JSX.Element[] = options.map((answer) => {
             const isPressed: boolean = answers.some(
                 (a) => a.answer === answer && a.question === question,
             )
+            const isWrong: boolean =
+                isPressed && isDone && question.correct_answer != answer
+            const isRight: boolean = isDone && question.correct_answer == answer
+            const style: string = clsx(
+                "quiz-button",
+                isPressed && "pressed",
+                isWrong && "wrong",
+                isRight && "right",
+            )
+
             return (
                 <button
-                    className={clsx("quiz-button", isPressed && "pressed")}
-                    key={nanoid()}
+                    className={style}
+                    key={answer}
                     onClick={(event) => chooseAnswer(event, question)}
+                    ref={(el) => {
+                        if (el) {
+                            quizButtons.current.push(el)
+                        }
+                    }}
                 >
-                    {answer}
+                    {he.decode(answer)}
                 </button>
             )
         })
@@ -68,6 +88,7 @@ export default function Quiz(props: QuizProps): JSX.Element {
     }
 
     function chooseAnswer(event: React.MouseEvent, question: Question): void {
+        if (isDone) return
         const newAnswer: Answer = {
             question: question,
             answer: event.currentTarget.textContent,
@@ -97,12 +118,14 @@ export default function Quiz(props: QuizProps): JSX.Element {
     return (
         <section className="quiz">
             {createQuestionElements()}
-            <button className="done-button" onClick={done}>
-                {isDone ? "New Quiz" : "Done"}
-            </button>
-            {isDone ? (
-                <p>{`You scored ${correctAnswers}/${props.questions.length}!`}</p>
-            ) : null}
+            <div className="score-container">
+                {isDone ? (
+                    <p>{`You scored ${correctAnswers}/${props.questions.length}!`}</p>
+                ) : null}
+                <button className="done-button" onClick={done}>
+                    {isDone ? "New Quiz" : "Done"}
+                </button>
+            </div>
         </section>
     )
 }

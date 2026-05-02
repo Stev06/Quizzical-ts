@@ -15,19 +15,30 @@ body {
 
 main {
     text-align: center;
-    width: clamp(600px, 800px, 1200px);
+    width: clamp(600px, 1000px, 1500px);
     h1 {
         margin-top: 40px;
     }
 }
 
 footer {
-    background-color: rgb(0, 166, 255);
+    background-color: hsl(241, 100%, 45%);
+    color: white;
     margin: 0;
-    border-radius: 10px;
+    padding-block: 5px;
+    font-weight: 600;
 
     p {
         margin: inherit;
+    }
+
+    a {
+        color: hsl(354, 100%, 45%);
+    }
+
+    a:hover,
+    a:focus {
+        color: hsl(309, 100%, 50%);
     }
 }
 
@@ -42,8 +53,9 @@ footer {
         margin-block: 30px;
 
         label {
+            margin-top: 10px;
             font-weight: 500;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
         }
 
         select {
@@ -63,7 +75,7 @@ footer {
         font-weight: bold;
         font-size: 1.25rem;
         color: white;
-        margin: 20px;
+        margin-top: 30px;
         height: 50px;
         width: 200px;
         border-radius: 10px;
@@ -73,6 +85,7 @@ footer {
         &:hover,
         &:focus {
             background-color: hsl(241, 100%, 35%);
+            cursor: pointer;
         }
 
         &:active {
@@ -88,7 +101,8 @@ footer {
     flex-direction: column;
 
     p {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+        margin: 10px;
     }
 
     .done-button {
@@ -105,6 +119,7 @@ footer {
 
         &:hover,
         &:focus {
+            cursor: pointer;
             background-color: hsl(241, 100%, 35%);
         }
 
@@ -123,5 +138,25 @@ footer {
 
     .pressed {
         background-color: rgb(161, 255, 161);
+        border: black 2px solid;
+    }
+
+    .right {
+        background-color: rgb(161, 255, 161);
+    }
+
+    .wrong {
+        background-color: rgb(255, 161, 162);
+    }
+
+    .score-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        p {
+            font-weight: bold;
+            font-size: 2rem;
+        }
     }
 }
