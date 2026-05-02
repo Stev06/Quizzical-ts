@@ -12,6 +12,7 @@ This WebApp is the final project of Scrimba's [React course](https://scrimba.com
 - Typescript
 
 ## Credits
+
 Background SVG image by [SVGBackgrounds.com](https://www.svgbackgrounds.com/set/free-svg-backgrounds-and-patterns/).
 
 ## Screenshots:

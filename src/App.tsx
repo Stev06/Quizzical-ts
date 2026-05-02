@@ -68,7 +68,10 @@ export default function App(): JSX.Element {
                     <a href="https://www.svgbackgrounds.com/set/free-svg-backgrounds-and-patterns/">
                         SVGBackgrounds.com
                     </a>
-                    ; App by Steven Nguyen
+                    ; App by{" "}
+                    <a href="https://github.com/Stev06/Quizzical-ts">
+                        Steven Nguyen
+                    </a>
                 </p>
             </footer>
         </main>
