@@ -11,15 +11,17 @@ This WebApp is the final project of Scrimba's [React course](https://scrimba.com
 - React 19
 - Typescript
 
-## Running Locally
+## Development
 
-### prerequisite  
+### Prerequisite  
 - npm
 - vite
 
+### Installation and Running Locally
 ```bash
 git clone https://github.com/Stev06/Quizzical-ts.git
 cd Quizzical-ts
+npm install
 npm run dev
 ```
 
