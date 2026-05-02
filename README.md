@@ -11,6 +11,18 @@ This WebApp is the final project of Scrimba's [React course](https://scrimba.com
 - React 19
 - Typescript
 
+## Running Locally
+
+### prerequisite  
+- npm
+- vite
+
+```bash
+git clone https://github.com/Stev06/Quizzical-ts.git
+cd Quizzical-ts
+npm run dev
+```
+
 ## Credits
 
 Background SVG image by [SVGBackgrounds.com](https://www.svgbackgrounds.com/set/free-svg-backgrounds-and-patterns/).
