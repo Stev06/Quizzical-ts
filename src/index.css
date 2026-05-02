@@ -70,8 +70,58 @@ footer {
         border: none;
         background-color: hsl(241, 100%, 45%);
 
+        &:hover,
+        &:focus {
+            background-color: hsl(241, 100%, 35%);
+        }
+
         &:active {
             background-color: hsl(241, 100%, 25%);
         }
+    }
+}
+
+.quiz {
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+    p {
+        font-size: 1.25rem;
+    }
+
+    .done-button {
+        font-family: inherit;
+        font-weight: bold;
+        font-size: 1.25rem;
+        color: white;
+        height: 50px;
+        width: 200px;
+        border-radius: 10px;
+        border: none;
+        background-color: hsl(241, 100%, 45%);
+        align-self: center;
+
+        &:hover,
+        &:focus {
+            background-color: hsl(241, 100%, 35%);
+        }
+
+        &:active {
+            background-color: hsl(241, 100%, 25%);
+        }
+    }
+
+    .quiz-button {
+        font-size: 1.25rem;
+        font-family: inherit;
+        padding: 4px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+
+    .pressed {
+        background-color: rgb(161, 255, 161);
     }
 }

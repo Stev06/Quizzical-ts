@@ -1,8 +1,8 @@
-import type { JSX } from "react";
+import type { JSX } from "react"
 
 type SelectionMenuProps = {
-    submit: (formData: FormData) => void;
-};
+    submit: (formData: FormData) => void
+}
 
 export default function SelectionMenu({
     submit,
@@ -10,8 +10,8 @@ export default function SelectionMenu({
     return (
         <form className="selection-menu" action={submit}>
             <div className="selection-item">
-                <label htmlFor="catagory">Catagory:&nbsp;</label>
-                <select id="catagory" name="catagory">
+                <label htmlFor="category">Catagory:&nbsp;</label>
+                <select id="category" name="category">
                     <option value="">Any Category</option>
                     <option value="9">General Knowledge</option>
                     <option value="10">Entertainment: Books</option>
@@ -65,5 +65,5 @@ export default function SelectionMenu({
 
             <button type="submit">Start Quiz</button>
         </form>
-    );
+    )
 }
