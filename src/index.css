@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: "Roboto Condensed", sans-serif;
-    background-image: url(background.svg);
+    background-image: url(/background.svg);
     display: flex;
     justify-content: center;
     align-items: center;

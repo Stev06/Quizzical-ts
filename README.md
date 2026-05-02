@@ -1,5 +1,7 @@
 # Quizzical
 
+Try it out online! https://quizzical-ts-steel.vercel.app/
+
 Quizzical is a online trivia game that retrieves its questions from the [Open Trivia Database API](https://opentdb.com/). Players can choose the catagory, difficulty, and type (true/false or multiple choice) of questions.
 
 This WebApp is the final project of Scrimba's [React course](https://scrimba.com/learn-react).
